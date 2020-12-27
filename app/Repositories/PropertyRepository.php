@@ -15,7 +15,7 @@ class PropertyRepository extends Repository
 
     public function userProperties()
     {
-        // return $this->getUser()->properties()->all(); //TODO: add this to user model
+        return $this->getUser()->properties; 
     }
 
     public function create($data)
