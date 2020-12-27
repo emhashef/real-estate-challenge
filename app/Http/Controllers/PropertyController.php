@@ -20,10 +20,13 @@ class PropertyController extends Controller
     }
 
     public function index(Request $request)
-    {
+    {   
+        //TODO: add this to permissions
+        $properties = $request->user()->hasRole('admin') ? 
+                        $this->property->all() : $this->property->userProperties(); 
 
         return view('property.list', [
-            'properties' => $this->property->all()
+            'properties' => $properties
         ]);
     }
 
